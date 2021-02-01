@@ -18,4 +18,19 @@ public class TeacherController {
         teacherService.updateTeacherWithPessimisticLock();
     }
 
+    @PatchMapping(value = "/em/find")
+    void updateTeacherWithPessimisticLockByFind() {
+        teacherService.updateTeacherWithPessimisticLockByFind(1);
+    }
+
+    @PatchMapping(value = "/em/query")
+    void updateTeacherWithPessimisticLockByQuery() {
+        teacherService.updateTeacherWithPessimisticLockByQuery(1);
+    }
+
+    @PatchMapping(value = "/em/explicit")
+    void updateTeacherWithPessimisticLockByExplicitLocking() {
+        teacherService.updateTeacherWithPessimisticLockByExplicitLocking(1);
+    }
+
 }
