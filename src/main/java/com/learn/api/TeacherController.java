@@ -33,4 +33,14 @@ public class TeacherController {
         teacherService.updateTeacherWithPessimisticLockByExplicitLocking(1);
     }
 
+    @PatchMapping(value = "/em/refresh")
+    void updateTeacherWithPessimisticLockByRefresh() {
+        teacherService.updateTeacherWithPessimisticLockByRefresh(1);
+    }
+
+    @PatchMapping(value = "/em/name/query")
+    void updateTeacherWithPessimisticLockByNameQuery() {
+        teacherService.updateTeacherWithPessimisticLockByNameQuery(1);
+    }
+
 }

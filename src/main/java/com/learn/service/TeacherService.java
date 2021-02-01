@@ -52,5 +52,17 @@ public class TeacherService {
         entityManager.lock(teacher, LockModeType.PESSIMISTIC_WRITE);
     }
 
+    public void updateTeacherWithPessimisticLockByRefresh(Integer id) {
+        log.info("====================em refresh start======================");
+        Teacher teacher = entityManager.find(Teacher.class, id);
+        entityManager.refresh(teacher, LockModeType.PESSIMISTIC_WRITE);
+    }
+
+    public void updateTeacherWithPessimisticLockByNameQuery(Integer id) {
+        log.info("====================em name query start======================");
+        Query updateTeacherByIdWithNameQuery = entityManager.createNamedQuery("updateTeacherByIdWithNameQuery");
+        updateTeacherByIdWithNameQuery.setParameter("id", 1);
+        updateTeacherByIdWithNameQuery.getResultList();
+    }
 
 }
